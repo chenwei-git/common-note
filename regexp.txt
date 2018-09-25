@@ -1,0 +1,118 @@
+String account = contract.getAccount();
+String fdata = contract.getFdata();
+String fmd5 = contract.getFmd5();
+String ftype = contract.getFtype();
+String fname = contract.getFname();
+String fpages = contract.getFpages();
+
+
+String account = null;contract.setAccount(account);
+String fdata = null;contract.setFdata(fdata);
+String fmd5 = null;contract.setFmd5(fmd5);
+String ftype = null;contract.setFtype(ftype);
+String fname = null;contract.setFname(fname);
+String fpages = null;contract.setFpages(fpages);
+
+(\w+ (\w+) \= )(\w+\.)get(\w+)\(\);
+$1null;$3set$4\($2\);
+
+-------------------------------------------------------
+id
+contract_id
+task_status
+task_realname_count
+task_sign_count
+task_sign_status_count
+task_download_count
+task_callback_count
+task_timeout_count
+callback_request
+callback_response
+callback_status
+error_code
+error_message
+channel_code
+channel_message
+update_time
+create_time
+lock_uuid
+
+
+id
+contractId
+taskStatus
+taskRealnameCount
+taskSignCount
+taskSignStatusCount
+taskDownloadCount
+taskCallbackCount
+taskTimeoutCount
+callbackRequest
+callbackResponse
+callbackStatus
+errorCode
+errorMessage
+channelCode
+channelMessage
+updateTime
+createTime
+lockUuid
+
+_([a-zA-Z])
+\U\1\E
+
+
+-------------------------------------------------------
+name
+certificatesType
+creditCode
+customerType
+customerIdType
+corporation
+corporationIdentificationType
+corporationIdentification
+creatorId
+type
+idType
+idNo
+idOrg
+taxpayerNo
+corporationIdOrg
+namePinyin
+
+
+
+customer.setName(name);
+customer.setCertificatesType(certificatesType);
+customer.setCreditCode(creditCode);
+customer.setCustomerType(customerType);
+customer.setCustomerIdType(customerIdType);
+customer.setCorporation(corporation);
+customer.setCorporationIdentificationType(corporationIdentificationType);
+customer.setCorporationIdentification(corporationIdentification);
+customer.setCreatorId(creatorId);
+customer.setType(type);
+customer.setIdType(idType);
+customer.setIdNo(idNo);
+customer.setIdOrg(idOrg);
+customer.setTaxpayerNo(taxpayerNo);
+customer.setCorporationIdOrg(corporationIdOrg);
+customer.setNamePinyin(namePinyin);
+
+([a-z])(.+)
+customer.set\U$1\E\2($0);
+
+
+
+--------------------------------------------------------------
+.+
+<if test="\0 != null"\>\0 = #{\0},</if\>
+
+
+(>[_a-z]+)([A-Z])
+$1_\L$2\E
+
+-------------------------------------------------------------
+
+匹配不包含13918118188@qq.com的行
+^(?!.*13918118188\@qq\.com).+\n

@@ -1,0 +1,46 @@
+
+db.UrlLogMongo.aggregate([
+    {"$match":{"url":{"$regex":"\/jacredit\/"}}},
+    {"$project":{"_id":0,"url":1}},
+    {"$group":{"_id":{"url":"$url"},"count":{"$sum":1}}}
+]);
+
+
+
+db.UrlLogMongo.mapReduce(
+    function() {
+        var formatNum = function(num, size) {
+            num = "" + num;
+            while (num.length < size) {
+                num = "0" + num;
+            }
+            return num;
+        }
+        var formatDate = function(d) {
+            var year = d.getFullYear();
+            var month = d.getMonth() + 1;
+            month = formatNum(month, 2);
+            var date = d.getDate();
+            date = formatNum(date, 2);
+            return  year + "-" + month + "-" + date;
+        }
+        var getDate = function(rc) {
+            var d = parseInt(rc.createTime / 1000) * 1000;
+            return formatDate(new Date(d));
+        }
+        var dateStr = getDate(this);
+        var key = {"date" : dateStr, "url" : this.url};
+        emit(key, 1);
+    },
+    function(key, values) {
+        return Array.sum(values);
+    },
+    {
+        query:{url:{"$regex":"\/jacredit\/"}},
+        out:"tmp_url_log"
+    }
+);
+
+db.tmp_url_log.aggregate([
+    {"$project":{"_id":0, "date":"$_id.date", "url":"$_id.url", "count":"$value"}}
+]);

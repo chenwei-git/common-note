@@ -1,0 +1,29 @@
+﻿Q-Index: nodejs-npm环境变量设置
+===================================================================
+1.
+新建C:\mine\opt-data\nodejs\node_global文件夹
+新建C:\mine\opt-data\nodejs\node_cache文件夹
+
+2.
+npm config set prefix "C:\mine\opt-data\nodejs\node_global"
+npm config set cache "C:\mine\opt-data\nodejs\node_cache"
+
+3.
+新增 系统环境变量 NODE_PATH, 值 C:\mine\opt-data\nodejs\node_global\node_modules
+
+删除用户path中默认的npm路径
+往系统环境变量 path中添加npm路径 C:\mine\opt-data\nodejs\node_global;
+npm install express -g
+
+4.
+cmd
+npm install express -g
+
+node
+require('express')
+
+
+Q-Index: nodejs-npm安装模块
+===================================================================
+
+cnpm install --save express

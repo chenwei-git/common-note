@@ -1,29 +1,38 @@
 ﻿Q-Index: nodejs-npm环境变量设置
 ===================================================================
-1.
+1. 新增系统环境变量 
+NODE_PATH=C:\mine\opt-data\nodejs\node_global\node_modules
+
+2. 从path中, 删除默认的npm路径(用户环境)
+
+3. 往path中, 添加npm路径(系统环境)
+C:\mine\opt-core\nodejs
+C:\mine\opt-data\nodejs\node_global
+
+4.
 新建C:\mine\opt-data\nodejs\node_global文件夹
 新建C:\mine\opt-data\nodejs\node_cache文件夹
 
-2.
-npm config set prefix "C:\mine\opt-data\nodejs\node_global"
-npm config set cache "C:\mine\opt-data\nodejs\node_cache"
+5.
+npm config set prefix "C:\mine\opt-data\nodejs\node_global" -g
+npm config set cache "C:\mine\opt-data\nodejs\node_cache" -g
 
-3.
-新增 系统环境变量 NODE_PATH, 值 C:\mine\opt-data\nodejs\node_global\node_modules
+6.
+npm install -g cnpm --registry=https://registry.npm.taobao.org
 
-删除用户path中默认的npm路径
-往系统环境变量 path中添加npm路径 C:\mine\opt-data\nodejs\node_global;
+7.
+cnpm config set prefix "C:\mine\opt-data\nodejs\node_global" -g
+cnpm config set cache "C:\mine\opt-data\nodejs\node_cache" -g
+
+8.
+cmd.exe
 npm install express -g
 
-4.
-cmd
-npm install express -g
-
-node
+node.js
 require('express')
+.exit
 
 
 Q-Index: nodejs-npm安装模块
 ===================================================================
-
 cnpm install --save express

@@ -1,0 +1,16 @@
+1 下载Erlang
+otp_win64_21.0.1.exe
+2 安装Erlang
+安装到C:\mine\opt-core\erl10.0.1
+设置环境变量ERLANG_HOME=C:\mine\opt-core\erl10.0.1
+3 下载rabbitmq
+rabbitmq-server-windows-3.7.7.zip
+4 安装
+解压安装包到C:\mine\opt-core
+5 Synchronise Erlang Cookies
+6 环境变量
+RABBITMQ_BASE=C:\mine\opt-data\rabbitmq_server-3.7.7
+RABBITMQ_CONF_ENV_FILE=C:\mine\opt-etc\rabbitmq_server-3.7.7\rabbitmq-env-conf.bat
+RABBITMQ_SERVER=C:\mine\opt-core\rabbitmq_server-3.7.7
+PATH=...;%RABBITMQ_SERVER%\sbin
+

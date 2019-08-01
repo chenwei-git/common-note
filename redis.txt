@@ -1,0 +1,1 @@
+/usr/local/bin/redis-cli -h 172.16.6.151 -p 6379 -a Finance2017Lease

@@ -1,0 +1,7 @@
+Q-Index: windows-命令行-查看网络连接数
+===================================================================
+netstat   -an -p tcp | find "X.X.X.X:PORT" | find "ESTABLISHED" /c
+
+
+
+netstat   -an -p tcp | find "144.76.85.168" | find "ESTABLISHED" /c

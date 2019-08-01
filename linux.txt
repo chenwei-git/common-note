@@ -21,11 +21,13 @@ sudo vi /etc/resolvconf/resolv.conf.d/base
 nameserver 223.5.5.5     #阿里的DNS、这里我使用的是阿里的源、也可以修改成别的。
 nameserver 220.170.64.68 #新添加 容易网络超时，影响上网速度
 nameserver 8.8.8.8       #新添加 容易网络超时，影响上网速度
+nameserver 114.114.114.114
+nameserver 223.5.5.5
+nameserver 8.8.8.8
 
 6.保存退出，执行
 resolvconf -u
 
-7.重启网卡
 sudo /etc/init.d/networking restart
 
 

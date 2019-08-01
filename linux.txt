@@ -29,6 +29,30 @@ resolvconf -u
 sudo /etc/init.d/networking restart
 
 
+Q-Index: linux-ubuntu-替换成阿里源
+===================================================================
+1. 
+cd /etc/apt
+vi CW-ChangeSource.sh
+输入如下:
+Codename=$( (lsb_release -a)|awk '{print $2}'|tail -n 1 )
+echo "\
+deb http://mirrors.aliyun.com/ubuntu/ $Codename main multiverse restricted universe
+deb http://mirrors.aliyun.com/ubuntu/ $Codename-backports main multiverse restricted universe
+deb http://mirrors.aliyun.com/ubuntu/ $Codename-proposed main multiverse restricted universe
+deb http://mirrors.aliyun.com/ubuntu/ $Codename-security main multiverse restricted universe
+deb http://mirrors.aliyun.com/ubuntu/ $Codename-updates main multiverse restricted universe
+deb-src http://mirrors.aliyun.com/ubuntu/ $Codename main multiverse restricted universe
+deb-src http://mirrors.aliyun.com/ubuntu/ $Codename-backports main multiverse restricted universe
+deb-src http://mirrors.aliyun.com/ubuntu/ $Codename-proposed main multiverse restricted universe
+deb-src http://mirrors.aliyun.com/ubuntu/ $Codename-security main multiverse restricted universe
+deb-src http://mirrors.aliyun.com/ubuntu/ $Codename-updates main multiverse restricted universe ">sources.list
+保存退出
+sh ./CW-ChangeSource.sh
+
+2. 更新
+apt-get update
+
 Q-Index: linux-ubuntu-ssh服务安装
 ===================================================================
 1.查看是否已安装
